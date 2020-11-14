@@ -11,4 +11,4 @@ class PostAdmin(admin.ModelAdmin):
     #fields = ('subject', 'content', 'author', 'location')
 
 admin.site.register(Location, LocationAdmin)  #註冊至Administration(管理員後台)
-admin.site.register(Post, PostAdmin)  #註冊至Administration(管理員後台)
+admin.site.register(Post, PostAdmin)  #註冊至Administration(管理員後台)##
