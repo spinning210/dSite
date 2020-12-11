@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
-
-# Create your views here.
+import requests
 
 def index(request):
-    posts = Post.objects.all()
-    return render(request, "posts/index.html", {"posts": posts})
+    response = requests.get(
+        "https://emma.pixnet.cc/mainpage/blog/categories/hot/28") #28為國內旅遊
+        
+    articles = response.json()["articles"] #轉換為JSON物件後，存取articles欄位
+
+    return render(request, "posts/index.html", {"articles": articles})
+ 
